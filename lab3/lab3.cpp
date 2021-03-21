@@ -9,20 +9,21 @@ class myQueue
     int ar[200];
 public:
     int size = sizeof(ar) / sizeof(int);
-
     int front = ar[0];
     int back = ar[size - 1];
     void push(int n)
     {
         ar[size] = n;
+        size++;
     }
     void pop()
     {
-        for (int i = 0; i < size - 1; i++)
+        for (int i = 1; i < size - 1; i++)
         {
             ar[i] = ar[i - 1];
         }
         ar[size - 1] = NULL;
+        size--;
     }
 };
 
