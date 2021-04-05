@@ -31,13 +31,14 @@ int main()
 {
     string map[50];
     ifstream inFile("input.csv");
-    int i = 0;
+    int n = 0;
     while (!inFile.eof())
     {
-        getline(inFile, map[i], '\n');
-        cout << map[i] << endl;
-        i++;
+        getline(inFile, map[n], '\n');
+        cout << map[n] << endl;
+        n++;
     }
+    int m = map[0].length();
 
     int x1, y1, x2, y2;
     cout << "Input starting coordinates\n";
@@ -45,8 +46,23 @@ int main()
     cout << "Input ending coordinates\n";
     cin >> x2, y2;
 
-    int mark[30][30] = { 10000 };
+    pair<int, int> vert[300];
+    bool v[300];
+    int mark[30][30];
     int x3 = x1, y3 = y1;
+    int k = 0;
     
-    
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < m; j++)
+        {
+            if (map[i][j] == 'X') mark[i][j] = 10000;
+            else
+            {
+                mark[i][j] = 1000;
+                v[k] = false;
+                k++;
+            }
+        }
+    }
 }
